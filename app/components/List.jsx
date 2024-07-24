@@ -20,11 +20,21 @@ const List = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        setmainTask([...mainTask, { task }])
-        settask("")
-        saveTo()
+        
+        if(task.length>0){
+
+            setmainTask([...mainTask, { task }])
+        
+            settask("")
+            saveTo()
+        } else {
+            alert("Enter Task To Add")
+        }
     }
     const deleteHandler = (i) => {
+        alert("Are you sure you want to delete")
+  
+      
         let copyTask = [...mainTask]
         copyTask.splice(i, 1)
         setmainTask(copyTask)
@@ -42,13 +52,13 @@ const List = () => {
     if (mainTask.length > 0)
         renderTask = mainTask.map((t, i) => {
             return (
-                <div key={i} className="main w-full h-auto bg-white flex justify-between m-1 mt-2 rounded-xl">
-                    <div className=" line-clamp-2 h-auto w-full ">
-                        <p className='p-1 '>{t.task}</p>
+                <div key={i} className="main w-full m-2 bg-white flex justify-between rounded-xl" >
+                    <div className="p-2 overflow-hidden  w-full ">
+                        <p>{t.task}</p>
                     </div>
-                    <div className="btn flex h-full">
-                        <button onClick={() => { editHandler(i) }} className='bg-red-600 text-white rounded m-1 p-1 '>Edit</button>
-                        <button onClick={() => { deleteHandler(i) }} className='bg-red-600 text-white rounded m-1 p-1 '>Delete</button>
+                    <div className="btn flex mr-1 h-full">
+                        <button onClick={() => { editHandler(i) }} className='bg-red-600 text-white rounded-lg m-1 p-1 '>Edit</button>
+                        <button onClick={() => { deleteHandler(i) }} className='bg-red-600 text-white rounded-lg m-1 p-1 '>Delete</button>
                     </div>
                 </div>
             )
