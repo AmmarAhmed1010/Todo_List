@@ -58,7 +58,7 @@ const List = () => {
                     <div className="overflow-auto mr-2 text-black">
                         <p className='p-3'>{t.task}</p>
                     </div>
-                    <div className="btn flex">
+                    <div className="btn flex h-full">
                         <button onClick={() => { editHandler(i) }} className='bg-red-600 text-white p-2 m-1 mr-0 rounded-xl'>Edit</button>
                         <button onClick={() => { deleteHandler(i) }} className='bg-red-600 text-white p-2 m-1 rounded-xl'>Delete</button>
                     </div>
@@ -77,8 +77,8 @@ const List = () => {
                         <input className='w-full rounded-xl p-1 text-black text-xl' type="text" value={task} onChange={(e) => { settask(e.target.value) }} placeholder='Enter Task' />
                         <button className='font-bold text-white bg-slate-700 rounded-xl p-2 text-xl'>ADD</button>
                     </form>
-                    <div className='text-center text-2xl bg-slate-700 rounded-xl m-1 p-1'>
-                        <h1 className='text-white  font-bold m-1'>All Tasks</h1>
+                    <div className='text-center text-2xl bg-slate-700 rounded-xl m-2 p-1'>
+                        <h1 className='text-white font-bold'>All Tasks</h1>
                     </div>
                     <h1 className=''>{renderTask}</h1>
                 </div>
